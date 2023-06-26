@@ -2,9 +2,9 @@ const menuOpen = document.querySelector('.profile__edit-button');
 const closeButton = document.querySelector('.popup__close');
 const popupMain = document.querySelector('.popup');
 const mainName = document.querySelector('.profile__heading');
-const inputName = document.querySelector('.popup_name');
+const inputName = document.querySelector('.popup__name');
 const afterMain = document.querySelector('.profile__subtitle');
-const inputAfter = document.querySelector('.popup_after');
+const inputAfter = document.querySelector('.popup__after');
 const buttonClr = document.querySelector('.element__button');
 const buttonSave = document.querySelector('.popup__save');
 
