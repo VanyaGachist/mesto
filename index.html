@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./pages/pages.css">
+</head>
+<body class="page">
+  <header class="header">
+    <img class="header__logo" alt="Россия" src="./images/logo.svg">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <img src="./images/image.jpg" alt="аватарка" class="profile__image">
+      <div class="profile__info">
+        <h1 class="profile__heading">Жак-Ив Кусто</h1>
+        <p class="profile__subtitle">Исследователь океана</p>
+        <button class="profile__edit-button"></button>
+      </div>
+      <button class="profile__add-button"></button>
+    </section>
+    <section class="elements">
+      <ul class="element">
+        <li class="element__item">
+          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1088404-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Карачаевск</h2>
+            <button class="element__button"></button>
+          </div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Карачаевск</h2>
+            <button class="element__button element__button_toogle"></button>
+          </div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="горы лес и пасмурная" src="./images/kirill-pershin-1556355-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Карачаевск</h2>
+            <button class="element__button"></button>
+          </div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Карачаевск</h2>
+            <button class="element__button"></button>
+          </div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1556355-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Карачаевск</h2>
+            <button class="element__button"></button>
+          </div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1088404-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Карачаевск</h2>
+            <button class="element__button"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <h2 class="footer__heading">© 2020 Mesto Russia</h2>
+  </footer>
+  <div class="popup">
+    <div class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__buttons">
+        <input type="text" class="popup__input popup_name">
+        <input type="text" class="popup__input popup_after">
+      </form>
+      <button class="popup__save">Сохранить</button>
+      <button class="popup__close"></button>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

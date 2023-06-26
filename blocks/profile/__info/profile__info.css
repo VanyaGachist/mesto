@@ -1,0 +1,22 @@
+.profile__info {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-areas:
+    "heading edit"
+    "subtitle .";
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 903px) {
+  .profile__info {
+    margin: 0 auto 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile__info {
+    margin: 0 38px 0 65px;
+  }
+}
