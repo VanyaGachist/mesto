@@ -5,12 +5,7 @@ const mainName = document.querySelector('.profile__heading');
 const inputName = document.querySelector('.popup__name');
 const afterMain = document.querySelector('.profile__subtitle');
 const inputAfter = document.querySelector('.popup__after');
-const buttonClr = document.querySelector('.element__button');
 const buttonSave = document.querySelector('.popup__save');
-
-function toogleHeart () { // сердечко меняет цвет
-  buttonClr.classList.toggle('element__button_color_black');
-}
 
 function togglePopup () {
   popupMain.classList.toggle('popup__opened');
