@@ -3,5 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  margin: 20px auto;
+}
+
+
+@media screen and (max-width: 400px) {
+  .element__info {
+    margin: 22px auto;
+  }
 }

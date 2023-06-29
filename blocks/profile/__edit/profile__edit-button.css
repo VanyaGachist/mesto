@@ -6,7 +6,7 @@
   background-color: transparent;
   border: none;
   grid-area: edit;
-  margin: 37px 0 0 0;
+  margin: 37px 0 0 15px;
   padding: 0;
   transition: opacity .2s linear;
 }

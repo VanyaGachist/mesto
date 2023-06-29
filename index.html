@@ -16,9 +16,9 @@
       <div class="profile__info">
         <h1 class="profile__heading">Жак-Ив Кусто</h1>
         <p class="profile__subtitle">Исследователь океана</p>
-        <button class="profile__edit-button"></button>
+        <button type="submit" class="profile__edit-button"></button>
       </div>
-      <button class="profile__add-button"></button>
+      <button type="submit" class="profile__add-button"></button>
     </section>
     <section class="elements">
       <ul class="element">
@@ -33,7 +33,7 @@
           <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
           <div class="element__info">
             <h2 class="element__heading">Гора Эльбрус</h2>
-            <button class="element__button element__button_toogle"></button>
+            <button class="element__button"></button>
           </div>
         </li>
         <li class="element__item">
@@ -68,16 +68,16 @@
     </section>
   </main>
   <footer class="footer">
-    <h2 class="footer__heading">© 2020 Mesto Russia</h2>
+    <p class="footer__heading">© 2020 Mesto Russia</p>
   </footer>
   <div class="popup">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__buttons">
+      <form class="popup__buttons" name="popup__form">
         <input type="text" class="popup__input popup__name">
         <input type="text" class="popup__input popup__after">
+        <button type="submit" class="popup__save">Сохранить</button>
       </form>
-      <button class="popup__save">Сохранить</button>
       <button class="popup__close"></button>
     </div>
   </div>

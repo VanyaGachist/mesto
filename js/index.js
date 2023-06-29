@@ -2,35 +2,34 @@ const menuOpen = document.querySelector('.profile__edit-button');
 const closeButton = document.querySelector('.popup__close');
 const popupMain = document.querySelector('.popup');
 const mainName = document.querySelector('.profile__heading');
-const inputName = document.querySelector('.popup__name');
 const afterMain = document.querySelector('.profile__subtitle');
-const inputAfter = document.querySelector('.popup__after');
-const buttonSave = document.querySelector('.popup__save');
+const formElement = document.querySelector('.popup__buttons');
+const nameInput = formElement.querySelector('.popup__name');
+const jobInput = formElement.querySelector('.popup__after');
 
-function togglePopup () {
-  popupMain.classList.toggle('popup__opened');
+function togglePopup() {
+  if (popupMain.classList.contains('popup_opened')) {
+    popupMain.classList.remove('popup_opened');
+  } else {
+    popupMain.classList.add('popup_opened');
+  }
 }
 
-menuOpen.addEventListener('click', togglePopup);
-
-closeButton.addEventListener('click', function () { // закрываю и введеные значения которые не сохранились удаляются
-  inputName.value = mainName.textContent;
-  inputAfter.value = afterMain.textContent;
+menuOpen.addEventListener('click', function () {
+  nameInput.value = mainName.textContent;
+  jobInput.value = afterMain.textContent;
   togglePopup()
 });
 
-inputName.value = mainName.textContent;
-inputAfter.value = afterMain.textContent;
+closeButton.addEventListener('click', togglePopup);
 
-buttonSave.addEventListener('click', function() { // кнопка сохранить значение введенное
-  if (inputName.value !== mainName.textContent) {
-    mainName.textContent = inputName.value;
-  }
+function handleFormSubmit (evt) {
+  evt.preventDefault();
+  mainName.textContent = nameInput.value;
+  afterMain.textContent = jobInput.value;
+  togglePopup()
+}
 
-  if (inputAfter.value !== afterMain.textContent) {
-    afterMain.textContent = inputAfter.value;
-  }
-});
-
+formElement.addEventListener('submit', handleFormSubmit);
 
 
