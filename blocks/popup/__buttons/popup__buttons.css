@@ -3,3 +3,9 @@
   flex-direction: column;
   margin: 54px 0 0 0;
 }
+
+@media screen and (max-width: 400px) {
+  .popup__buttons {
+    margin: 75px 0 0 0;
+  }
+}

@@ -16,9 +16,9 @@
       <div class="profile__info">
         <h1 class="profile__heading">Жак-Ив Кусто</h1>
         <p class="profile__subtitle">Исследователь океана</p>
-        <button type="submit" class="profile__edit-button"></button>
+        <button type="button" class="profile__edit-button"></button>
       </div>
-      <button type="submit" class="profile__add-button"></button>
+      <button type="button" class="profile__add-button"></button>
     </section>
     <section class="elements">
       <ul class="element">
@@ -26,42 +26,42 @@
           <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1088404-unsplash.jpg">
           <div class="element__info">
             <h2 class="element__heading">Карачаевск</h2>
-            <button class="element__button"></button>
+            <button type="button" class="element__button"></button>
           </div>
         </li>
         <li class="element__item">
           <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
           <div class="element__info">
             <h2 class="element__heading">Гора Эльбрус</h2>
-            <button class="element__button"></button>
+            <button type="button" class="element__button"></button>
           </div>
         </li>
         <li class="element__item">
           <img class="element__image" alt="горы лес и пасмурная" src="./images/kirill-pershin-1556355-unsplash.jpg">
           <div class="element__info">
             <h2 class="element__heading">Домбай</h2>
-            <button class="element__button"></button>
+            <button type="button" class="element__button"></button>
           </div>
         </li>
         <li class="element__item">
           <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
           <div class="element__info">
             <h2 class="element__heading">Гора Эльбрус</h2>
-            <button class="element__button"></button>
+            <button type="button" class="element__button"></button>
           </div>
         </li>
         <li class="element__item">
           <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1556355-unsplash.jpg">
           <div class="element__info">
             <h2 class="element__heading">Домбай</h2>
-            <button class="element__button"></button>
+            <button type="button" class="element__button"></button>
           </div>
         </li>
         <li class="element__item">
           <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1088404-unsplash.jpg">
           <div class="element__info">
             <h2 class="element__heading">Карачаево-Ч...</h2>
-            <button class="element__button"></button>
+            <button type="button" class="element__button"></button>
           </div>
         </li>
       </ul>
@@ -74,11 +74,11 @@
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__buttons" name="popup__form">
-        <input type="text" class="popup__input popup__name">
-        <input type="text" class="popup__input popup__after">
+        <input type="text" name="input_name" value="Имя" class="popup__input popup__input_text_name">
+        <input type="text" name="input_job" value="Работа" class="popup__input popup__input_text_after">
         <button type="submit" class="popup__save">Сохранить</button>
       </form>
-      <button class="popup__close"></button>
+      <button type="button" class="popup__close"></button>
     </div>
   </div>
   <script src="./js/index.js"></script>
