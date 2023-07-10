@@ -22,55 +22,14 @@
     </section>
     <section class="elements">
       <ul class="element">
-        <li class="element__item">
-          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1088404-unsplash.jpg">
-          <div class="element__info">
-            <h2 class="element__heading">Карачаевск</h2>
-            <button type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
-          <div class="element__info">
-            <h2 class="element__heading">Гора Эльбрус</h2>
-            <button type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img class="element__image" alt="горы лес и пасмурная" src="./images/kirill-pershin-1556355-unsplash.jpg">
-          <div class="element__info">
-            <h2 class="element__heading">Домбай</h2>
-            <button type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
-          <div class="element__info">
-            <h2 class="element__heading">Гора Эльбрус</h2>
-            <button type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1556355-unsplash.jpg">
-          <div class="element__info">
-            <h2 class="element__heading">Домбай</h2>
-            <button type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1088404-unsplash.jpg">
-          <div class="element__info">
-            <h2 class="element__heading">Карачаево-Ч...</h2>
-            <button type="button" class="element__button"></button>
-          </div>
-        </li>
+
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__heading">© 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup__first">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__buttons" name="popup__form">
@@ -78,9 +37,73 @@
         <input type="text" name="input_job" value="Работа" class="popup__input popup__input_text_after">
         <button type="submit" class="popup__save">Сохранить</button>
       </form>
-      <button type="button" class="popup__close"></button>
+      <button type="button" class="popup__close popup__close_first"></button>
+    </div>
+  </div>
+  <div class="popup popup__second">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__buttons" name="popup__form">
+        <input type="text" name="input_name_second"  class="popup__input popup__input_text_name_second" placeholder="Название">
+        <input type="text" name="input_image" class="popup__input popup__input_text_image" placeholder="Ссылка на картинку">
+        <button type="submit" class="popup__create">создать</button>
+      </form>
+      <button type="button" class="popup__close popup__close_second"></button>
     </div>
   </div>
   <script src="./js/index.js"></script>
 </body>
 </html>
+
+<!--
+        <ul class="element">
+        <li class="element__item">
+          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1088404-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Карачаевск</h2>
+            <button type="button" class="element__button"></button>
+          </div>
+          <div class="element__trash"></div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Гора Эльбрус</h2>
+            <button type="button" class="element__button"></button>
+          </div>
+          <div class="element__trash"></div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="горы лес и пасмурная" src="./images/kirill-pershin-1556355-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Домбай</h2>
+            <button type="button" class="element__button"></button>
+          </div>
+          <div class="element__trash"></div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="поле закат и одинокая гора" src="./images/kirill-pershin-1404681-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Гора Эльбрус</h2>
+            <button type="button" class="element__button"></button>
+          </div>
+          <div class="element__trash"></div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1556355-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Домбай</h2>
+            <button type="button" class="element__button"></button>
+          </div>
+          <div class="element__trash"></div>
+        </li>
+        <li class="element__item">
+          <img class="element__image" alt="заброшенное здание посреди гор" src="./images/kirill-pershin-1088404-unsplash.jpg">
+          <div class="element__info">
+            <h2 class="element__heading">Карачаево-Ч...</h2>
+            <button type="button" class="element__button"></button>
+          </div>
+          <div class="element__trash"></div>
+        </li>
+      </ul>
+-->
