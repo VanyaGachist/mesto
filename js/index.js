@@ -98,6 +98,11 @@ const renderCards = (cardName, cardImage) => {
     evt.target.classList.toggle('element__button_color_black');
   });
 
+  trash.addEventListener('click', function(evt) {
+    const item = evt.target.closest('.element__item');
+    item.remove();
+  });
+
   return li;
 }
 
@@ -108,9 +113,8 @@ initialCards.forEach(cards => {
 function addCardsSubmit () {
   const name = nameImg.value;
   const link = hrefImage.value;
-  elementsContainer.append(renderCards(name, link));
+  elementsContainer.prepend(renderCards(name, link));
 }
-
 
 createCard.addEventListener('click', (evt) => {
   evt.preventDefault();
