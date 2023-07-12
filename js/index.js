@@ -1,8 +1,8 @@
 const openMenu = document.querySelector('.profile__edit-button');
 const closeButton = document.querySelector('.popup__close_first');
 const closeButtonSecond = document.querySelector('.popup__close_second');
-const popupMain = document.querySelector('.popup__edit');
-const secondPopup = document.querySelector('.popup__add');
+const popupMain = document.querySelector('.popup_edit');
+const secondPopup = document.querySelector('.popup_add');
 const mainName = document.querySelector('.profile__heading');
 const afterMain = document.querySelector('.profile__subtitle');
 const formElement = document.querySelector('.popup__buttons');
@@ -10,12 +10,12 @@ const nameInput = formElement.querySelector('.popup__input_text_name');
 const jobInput = formElement.querySelector('.popup__input_text_after');
 const openAddMenu = document.querySelector('.profile__add-button');
 const elementsContainer = document.querySelector('.element');
-const nameImg = document.querySelector('.popup__input_text_name_image');
-const hrefImage = document.querySelector('.popup__input_text_image');
+const nameImg = document.querySelector('.popup__input-text_name-image');
+const hrefImage = document.querySelector('.popup__input-text_image');
 const createCard = document.querySelector('.popup__create');
 const popupTextImage = document.querySelector('.popup__subtitle');
 const fullScreanImagePopup = document.querySelector('.popup__image');
-const popupWithImage = document.querySelector('.popup__full');
+const popupWithImage = document.querySelector('.popup_full');
 const closePopupThird = document.querySelector('.popup__close_third');
 
 const initialCards = [
