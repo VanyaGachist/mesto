@@ -30,4 +30,9 @@
 @import url("../blocks/popup/__save/popup__save.css");
 @import url("../blocks/popup/__close/popup__close.css");
 @import url("../blocks/popup/__create/popup__create.css");
+@import url("../blocks/popup/_third/popup_third.css");
+@import url("../blocks/popup/__overlay/popup__overlay.css");
+@import url("../blocks/popup/__image/popup__image.css");
+@import url("../blocks/popup/__subtitle/popup__subtitle.css");
+@import url("../blocks/popup/__close/_third/popup__close_third.css");
 

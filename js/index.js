@@ -13,6 +13,10 @@ const elementsContainer = document.querySelector('.element');
 const nameImg = document.querySelector('.popup__input_text_name_second');
 const hrefImage = document.querySelector('.popup__input_text_image');
 const createCard = document.querySelector('.popup__create');
+const popupTextImage = document.querySelector('.popup__subtitle');
+const fullScreanImagePopup = document.querySelector('.popup__image');
+const popupWithImage = document.querySelector('.popup__third');
+const closePopupThird = document.querySelector('.popup__close_third');
 
 const initialCards = [
   {
@@ -102,6 +106,23 @@ const renderCards = (cardName, cardImage) => {
     const item = evt.target.closest('.element__item');
     item.remove();
   });
+
+  function openImage () {
+    fullScreanImagePopup.src = cardImage;
+    popupTextImage.textContent = heading.textContent;
+    console.log(fullScreanImagePopup);
+  }
+
+  img.addEventListener('click', function () {
+    openImage();
+    popupWithImage.classList.add('popup_opened');
+  });
+
+  function closePopupImage () {
+    popupWithImage.classList.remove('popup_opened');
+  }
+
+  closePopupThird.addEventListener('click', closePopupImage);
 
   return li;
 }
