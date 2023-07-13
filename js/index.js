@@ -89,7 +89,7 @@ const renderCards = (cardName, cardImage) => {
   heading.textContent = cardName;
   const heart = li.querySelector('.element__button');
   const trash = li.querySelector('.element__trash');
-  img.style.backgroundImage = `url(${cardImage})`;
+  img.src = `${cardImage}`;
   img.setAttribute('alt', heading.textContent);
 
   heart.addEventListener('click', function (evt) {

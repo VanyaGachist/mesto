@@ -10,7 +10,7 @@
   align-items: center;
   visibility: hidden;
   opacity: 0;
-  transition: visibility .3s ease, opacity .3s ease;
+  transition: visibility .3s, opacity .3s ease;
 }
 
 @media screen and (max-width: 563px) {
