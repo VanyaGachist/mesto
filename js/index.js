@@ -1,18 +1,18 @@
-const OpenEditMenuForProfile = document.querySelector('.profile__edit-button');
+const openEditMenuForProfile = document.querySelector('.profile__edit-button');
 const closeEditMenuButton = document.querySelector('.popup__close_first');
 const closeAddMenuButton = document.querySelector('.popup__close_second');
 const editMenuPopup = document.querySelector('.popup_edit');
 const addMenuPopup = document.querySelector('.popup_add');
 const nameOfProfile = document.querySelector('.profile__heading');
 const jobOfProfile = document.querySelector('.profile__subtitle');
-const formElement = document.querySelector('.popup__buttons');
-const nameInputForProfile = formElement.querySelector('.popup__input_text_name');
-const jobInputForProfile = formElement.querySelector('.popup__input_text_after');
+const formElementForEditMenu = document.querySelector('.popup__form_type_with-name-and-job');
+const nameInputForProfile = formElementForEditMenu.querySelector('.popup__input_text_name');
+const jobInputForProfile = formElementForEditMenu.querySelector('.popup__input_text_after');
 const openAddMenuButton = document.querySelector('.profile__add-button');
 const elementsContainer = document.querySelector('.element');
-const nameInputForImage = document.querySelector('.popup__input_text_name-image');
-const hrefInputForImage = document.querySelector('.popup__input_href-image');
-const createCard = document.querySelector('.popup__create');
+const formElementForAddMenu = document.querySelector('.popup__form_type_with-image');
+const nameInputForImage = formElementForAddMenu.querySelector('.popup__input_text_name-image');
+const hrefInputForImage = formElementForAddMenu.querySelector('.popup__input_href-image');
 const textForImage = document.querySelector('.popup__subtitle');
 const fullScreanImagePopup = document.querySelector('.popup__image');
 const openPopupWithFullScreanImage = document.querySelector('.popup_full');
@@ -53,7 +53,7 @@ function closePopup (popup) {
   popup.classList.remove('popup_opened');
 }
 
-OpenEditMenuForProfile.addEventListener('click', function () {
+openEditMenuForProfile.addEventListener('click', function () {
   nameInputForProfile.value = nameOfProfile.textContent;
   jobInputForProfile.value = jobOfProfile.textContent;
   openPopup(editMenuPopup);
@@ -78,8 +78,7 @@ function editProfileMenuSubmit (evt) {
   closePopup(editMenuPopup);
 }
 
-formElement.addEventListener('submit', editProfileMenuSubmit);
-
+formElementForEditMenu.addEventListener('submit', editProfileMenuSubmit);
 
 const renderCards = (cardName, cardImage) => {
   const cardsTemplate = document.querySelector('#card__template').content;
@@ -104,6 +103,7 @@ const renderCards = (cardName, cardImage) => {
   function openImage () {
     fullScreanImagePopup.src = cardImage;
     textForImage.textContent = heading.textContent;
+    fullScreanImagePopup.setAttribute('alt', heading.textContent);
   }
 
   img.addEventListener('click', function () {
@@ -130,7 +130,7 @@ function addCardsSubmit () {
   hrefInputForImage.value = '';
 }
 
-createCard.addEventListener('click', (evt) => {
+formElementForAddMenu.addEventListener('submit', (evt) => {
   evt.preventDefault();
   addCardsSubmit();
   closePopup(addMenuPopup);
