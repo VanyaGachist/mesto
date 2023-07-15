@@ -20,28 +20,24 @@ const closePopupWithFullScreanImage = document.querySelector('.popup__close_thir
 
 const initialCards = [
   {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    name: 'Mr. Vselenaya',
+    link: 'https://i.ytimg.com/vi/TVB8pbuUpMA/maxresdefault.jpg'
   },
   {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    name: 'Pepe',
+    link: 'https://phonoteka.org/uploads/posts/2021-06/thumbs/1624840864_1-phonoteka_org-p-lyagushka-pepe-oboi-krasivo-1.jpg'
   },
   {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    name: 'Собчак',
+    link: 'https://wikiwarriors.org/mediawiki/images/e/e4/WalterSobchak.jpg'
   },
   {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    name: '40',
+    link: 'https://cs12.pikabu.ru/post_img/big/2022/01/25/7/1643108970148553768.jpg'
   },
   {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    name: 'bububub',
+    link: 'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/03/The-boys-billy-butcher-1.jpg'
   }
 ];
 
