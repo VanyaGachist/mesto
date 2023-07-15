@@ -15,5 +15,5 @@
 Планируется дальше развивать проект с помощью предложенных заданий Яндексом, надеюсь будет все так же круто и весело!
 
 -----
-[работа на GitHub pages](https://vanyagachist.github.io/mesto/)
+[работа на GitHub pages](https://vanyagachist.github.io/mesto/) *ggwp*
 
