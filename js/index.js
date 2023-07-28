@@ -17,6 +17,7 @@ const textForImage = document.querySelector('.popup__subtitle');
 const fullScreanImagePopup = document.querySelector('.popup__image');
 const openPopupWithFullScreanImage = document.querySelector('.popup_full');
 const closePopupWithFullScreanImage = document.querySelector('.popup__close_third');
+const openedPopup = document.querySelector('.popup_opened');
 
 const initialCards = [
   {
@@ -41,12 +42,20 @@ const initialCards = [
   }
 ];
 
+function closePopupWithEscape (evt) {
+  if(evt.key === 'Escape' && openedPopup) {
+    console.log(closePopup(openedPopup));
+  }
+}
+
 function openPopup (popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupWithEscape);
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupWithEscape);
 }
 
 openEditMenuForProfile.addEventListener('click', function () {
@@ -132,3 +141,13 @@ formElementForAddMenu.addEventListener('submit', (evt) => {
   closePopup(addMenuPopup);
 });
 
+ValidationConfig = ({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+});
+
+enableValidation(ValidationConfig);

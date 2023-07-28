@@ -1,0 +1,9 @@
+.popup__label {
+  margin: 54px 36px 30px 36px;
+  max-width: 358px;
+}
+
+.popup__label:last-of-type {
+  margin-bottom: 0;
+  margin-top: 0;
+}
