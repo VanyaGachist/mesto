@@ -42,20 +42,26 @@ const initialCards = [
   }
 ];
 
-function closePopupWithEscape (evt) {
-  if(evt.key === 'Escape' && openedPopup) {
-    console.log(closePopup(openedPopup));
-  }
+function closePopup (popup) {
+  popup.classList.remove('popup_opened');
 }
 
 function openPopup (popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupWithEscape);
-}
 
-function closePopup (popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupWithEscape);
+  const closePopupWithEscape = (evt) => {
+    if(evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  }
+  const closePopupWithClickToZone = (evt) => {
+    if(evt.target === popup) {
+      closePopup(popup);
+    }
+  }
+
+  document.addEventListener('keydown', closePopupWithEscape);
+  document.addEventListener('click', closePopupWithClickToZone);
 }
 
 openEditMenuForProfile.addEventListener('click', function () {
