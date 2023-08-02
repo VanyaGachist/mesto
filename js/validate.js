@@ -1,14 +1,14 @@
 function enableValidation (config) {
   const showInputError = (form, input) => {
     input.classList.add(config.inputErrorClass);
-    const span = form.querySelector(`.${input.id}-error`);
+    const span = form.querySelector('.popup__error-' + input.id);
     span.textContent = input.validationMessage;
     span.classList.add(config.errorClass);
   }
 
   const hideInputError = (form, input) => {
     input.classList.remove(config.inputErrorClass);
-    const span = form.querySelector(`.${input.id}-error`);
+    const span = form.querySelector('.popup__error-' + input.id);
     span.classList.remove(config.errorClass);
   }
 
