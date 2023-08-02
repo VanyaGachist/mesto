@@ -18,6 +18,7 @@ const fullScreanImagePopup = document.querySelector('.popup__image');
 const openPopupWithFullScreanImage = document.querySelector('.popup_full');
 const closePopupWithFullScreanImage = document.querySelector('.popup__close_third');
 const openedPopup = document.querySelector('.popup_opened');
+const cardsTemplate = document.querySelector('#card__template').content;
 
 const initialCards = [
   {
@@ -42,26 +43,36 @@ const initialCards = [
   }
 ];
 
+function closePopupWithEscape(evt, popup) {
+  if(evt.key === 'Escape') {
+    closePopup(popup);
+  }
+}
+
+function closePopupWithClickToZone(evt, popup) {
+  if(evt.target === popup) {
+    closePopup(popup);
+  }
+}
+
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', (evt) => {
+    closePopupWithEscape(evt, popup);
+  });
+  document.removeEventListener('click', (evt) => {
+    closePopupWithClickToZone(evt, popup);
+  });
 }
 
 function openPopup (popup) {
   popup.classList.add('popup_opened');
-
-  const closePopupWithEscape = (evt) => {
-    if(evt.key === 'Escape') {
-      closePopup(popup);
-    }
-  }
-  const closePopupWithClickToZone = (evt) => {
-    if(evt.target === popup) {
-      closePopup(popup);
-    }
-  }
-
-  document.addEventListener('keydown', closePopupWithEscape);
-  document.addEventListener('click', closePopupWithClickToZone);
+  document.addEventListener('keydown', (evt) => {
+    closePopupWithEscape(evt, popup);
+  });
+  document.addEventListener('click', (evt) => {
+    closePopupWithClickToZone(evt, popup);
+  });
 }
 
 openEditMenuForProfile.addEventListener('click', function () {
@@ -92,13 +103,12 @@ function editProfileMenuSubmit (evt) {
 formElementForEditMenu.addEventListener('submit', editProfileMenuSubmit);
 
 const renderCards = (cardName, cardImage) => {
-  const cardsTemplate = document.querySelector('#card__template').content;
-  const li = cardsTemplate.querySelector('.element__item').cloneNode(true);
-  const img = li.querySelector('.element__image');
-  const heading = li.querySelector('.element__heading');
+  const cardElement = cardsTemplate.querySelector('.element__item').cloneNode(true);
+  const img = cardElement.querySelector('.element__image');
+  const heading = cardElement.querySelector('.element__heading');
   heading.textContent = cardName;
-  const heart = li.querySelector('.element__button');
-  const trash = li.querySelector('.element__trash');
+  const heart = cardElement.querySelector('.element__button');
+  const trash = cardElement.querySelector('.element__trash');
   img.src = `${cardImage}`;
   img.setAttribute('alt', heading.textContent);
 
@@ -122,12 +132,12 @@ const renderCards = (cardName, cardImage) => {
     openPopup(openPopupWithFullScreanImage);
   });
 
-  closePopupWithFullScreanImage.addEventListener('click', function () {
-    closePopup(openPopupWithFullScreanImage);
-  });
-
-  return li;
+  return cardElement;
 }
+
+closePopupWithFullScreanImage.addEventListener('click', function () {
+  closePopup(openPopupWithFullScreanImage);
+});
 
 initialCards.forEach(cards => {
   elementsContainer.append(renderCards(cards.name, cards.link));
@@ -147,7 +157,7 @@ formElementForAddMenu.addEventListener('submit', (evt) => {
   closePopup(addMenuPopup);
 });
 
-ValidationConfig = ({
+validationConfig = ({
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
@@ -156,4 +166,4 @@ ValidationConfig = ({
   errorClass: 'popup__error_visible'
 });
 
-enableValidation(ValidationConfig);
+enableValidation(validationConfig);
