@@ -19,6 +19,7 @@ const openPopupWithFullScreanImage = document.querySelector('.popup_full');
 const closePopupWithFullScreanImage = document.querySelector('.popup__close_third');
 const openedPopup = document.querySelector('.popup_opened');
 const cardsTemplate = document.querySelector('#card__template').content;
+const createPopupButtonCard = document.querySelector('.popup__create');
 
 const initialCards = [
   {
@@ -83,6 +84,7 @@ openEditMenuForProfile.addEventListener('click', function () {
 
 openAddMenuButton.addEventListener('click', function () {
   openPopup(addMenuPopup);
+  disableSubmitButton(createPopupButtonCard, validationConfig);
 });
 
 closeEditMenuButton.addEventListener('click', function () {
@@ -101,6 +103,7 @@ function editProfileMenuSubmit (evt) {
 }
 
 formElementForEditMenu.addEventListener('submit', editProfileMenuSubmit);
+
 
 const renderCards = (cardName, cardImage) => {
   const cardElement = cardsTemplate.querySelector('.element__item').cloneNode(true);

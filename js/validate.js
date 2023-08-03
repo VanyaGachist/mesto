@@ -15,6 +15,7 @@ function showInputError(form, input, config) {
 function hideInputError(form, input, config) {
   input.classList.remove(config.inputErrorClass);
   const span = form.querySelector('.popup__error-' + input.id);
+  span.textContent = '';
   span.classList.remove(config.errorClass);
 }
 
@@ -22,13 +23,21 @@ function hasInvalidValue(inputs) {
   return inputs.some(input => !input.validity.valid);
 }
 
+function enableSubmitButton (button, config) {
+  button.classList.remove(config.inactiveButtonClass);
+  button.disabled = false;
+}
+
+function disableSubmitButton (button, config) {
+  button.classList.add(config.inactiveButtonClass);
+  button.disabled = true;
+}
+
 function toogleButtonState(inputs, button, config)  {
   if(hasInvalidValue(inputs)) {
-    button.classList.add(config.inactiveButtonClass);
-    button.disabled = true;
+    disableSubmitButton(button, config);
   } else {
-    button.classList.remove(config.inactiveButtonClass);
-    button.disabled = false;
+    enableSubmitButton(button, config);
   }
 }
 
