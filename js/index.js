@@ -17,7 +17,6 @@ const textForImage = document.querySelector('.popup__subtitle');
 const fullScreanImagePopup = document.querySelector('.popup__image');
 const openPopupWithFullScreanImage = document.querySelector('.popup_full');
 const closePopupWithFullScreanImage = document.querySelector('.popup__close_third');
-const openedPopup = document.querySelector('.popup_opened');
 const cardsTemplate = document.querySelector('#card__template').content;
 const createPopupButtonCard = document.querySelector('.popup__create');
 
@@ -44,13 +43,15 @@ const initialCards = [
   }
 ];
 
-function closePopupWithEscape(evt, popup) {
-  if(evt.key === 'Escape') {
-    closePopup(popup);
+function closePopupWithEscape(evt) {
+  const opnPopup = document.querySelector('.popup_opened');
+  if(evt.key === 'Escape' && opnPopup) {
+    closePopup(opnPopup);
   }
 }
 
-function closePopupWithClickToZone(evt, popup) {
+function closePopupWithClickToZone(evt) {
+  const popup = evt.target;
   if(evt.target === popup) {
     closePopup(popup);
   }
@@ -58,22 +59,14 @@ function closePopupWithClickToZone(evt, popup) {
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', (evt) => {
-    closePopupWithEscape(evt, popup);
-  });
-  document.removeEventListener('click', (evt) => {
-    closePopupWithClickToZone(evt, popup);
-  });
+  window.removeEventListener('keydown', closePopupWithEscape);
+  popup.removeEventListener('click', closePopupWithClickToZone);
 }
 
 function openPopup (popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', (evt) => {
-    closePopupWithEscape(evt, popup);
-  });
-  document.addEventListener('click', (evt) => {
-    closePopupWithClickToZone(evt, popup);
-  });
+  window.addEventListener('keydown', closePopupWithEscape);
+  popup.addEventListener('click', closePopupWithClickToZone);
 }
 
 openEditMenuForProfile.addEventListener('click', function () {
