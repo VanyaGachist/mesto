@@ -51,7 +51,7 @@ function closePopupWithEscape(evt) {
 }
 
 function closePopupWithClickToZone(evt) {
-  const popup = evt.target;
+  const popup = evt.currentTarget ;
   if(evt.target === popup) {
     closePopup(popup);
   }
