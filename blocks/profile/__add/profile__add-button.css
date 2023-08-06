@@ -9,7 +9,6 @@
   grid-column: 5 / 6;
   align-self: center;
   justify-self: end;
-  transition: opacity .2s linear;
 }
 
 .profile__add-button:hover {
