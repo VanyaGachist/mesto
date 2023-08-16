@@ -20,3 +20,5 @@ const initialCards = [
     link: 'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/03/The-boys-billy-butcher-1.jpg'
   }
 ];
+
+export default initialCards;
