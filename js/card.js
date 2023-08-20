@@ -1,9 +1,12 @@
 // Класс с созданием карточек
+import PopupImage from "./popupImage.js";
 
 class Card {
   constructor(title, image) {
+    const openPopupWithFullScreanImage = document.querySelector('.popup_full');
     this._title = title;
     this._image = image;
+    this._popupImage = new PopupImage(openPopupWithFullScreanImage);
   }
 
   _getTemplate() {
@@ -32,16 +35,25 @@ class Card {
 
   _setEventToAddLike() {
     const heartButton = this._newCard.querySelector('.element__button');
-    heartButton.addEventListener('click', this._handleAddLike.bind(this));
+    heartButton.addEventListener('click', (evt) => {
+      if(evt.target.classList.contains('element__button')) {
+        evt.target.classList.toggle('element__button_color_black');
+      }
+    });
+  }
+
+  _setOpenImage() {
+    const img = this._newCard.querySelector('.element__image');
+    img.src = this._image;
+    img.setAttribute('alt', this._title);
+    img.addEventListener('click', () => {
+      this._popupImage.openImage(this._image, this._title);
+    });
   }
 
   _handleDeleteCard() {
     this._newCard.remove();
     this._newCard = null;
-  }
-
-  _handleAddLike() {
-    this._newCard.classList.toggle('element__button_color_black');
   }
 
   getView() {
@@ -50,6 +62,7 @@ class Card {
     this._setImage();
     this._setEventToDeleteButton();
     this._setEventToAddLike();
+    this._setOpenImage();
 
     return this._newCard;
   }
