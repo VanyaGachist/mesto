@@ -9,6 +9,6 @@
   color: red;
   box-sizing: border-box;
   height: 10px;
-  min-height: 38px;
+  min-height: 20px;
   display: inline-block;
 }
