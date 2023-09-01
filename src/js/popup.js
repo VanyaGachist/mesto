@@ -5,6 +5,7 @@ class Popup {
     this._popup = document.querySelector(popupSelector);
     this._handleClosePopupWithEsc = this._handleClosePopupWithEsc.bind(this);
     this._handeClosePopupWithClickToZone = this._handeClosePopupWithClickToZone.bind(this);
+    this._closeButton = this._popup.querySelector('.popup__close');
   }
 
   open() {
@@ -29,6 +30,10 @@ class Popup {
     if(evt.target === this._popup) {
       this.close();
     }
+  }
+
+  setEventListeners() {
+    this._closeButton.addEventListener('click', this.close.bind(this));
   }
 }
 
