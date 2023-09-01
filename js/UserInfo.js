@@ -12,7 +12,7 @@ class UserInfo {
   getUserInfo() {
     return {
       name: this._title,
-      jobName: this._jobName
+      jobName: this._description
     };
   }
 }
