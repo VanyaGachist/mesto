@@ -11,6 +11,7 @@ class PopupImage extends Popup {
     this._fullScreanImagePopup.src = cardImage;
     this._textForImage.textContent = cardHeading;
     super.open();
+    super.setEventListeners();
   }
 }
 
