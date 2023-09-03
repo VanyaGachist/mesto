@@ -31,8 +31,6 @@ export const initialCards = [
 ];
 
 export const openEditMenuForProfile = document.querySelector('.profile__edit-button');
-export const closeEditMenuButton = document.querySelector('.popup__close_first');
-export const closeAddMenuButton = document.querySelector('.popup__close_second');
-export const formElementForEditMenu = document.querySelector('.popup__form_type_with-name-and-job');
 export const openAddMenuButton = document.querySelector('.profile__add-button');
-export const formElementForAddMenu = document.querySelector('.popup__form_type_with-image');
+export const nameImage = document.querySelector('.popup__input_text_name-image');
+export const hrefImage = document.querySelector('.popup__input_href-image');
