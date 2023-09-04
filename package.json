@@ -4,12 +4,27 @@
   "description": "----- ## О чем проект? это проектная работа, в которой мне надо было по макету сверстать сайт и после верстки, сделать некоторые кнопки рабочими, подключив js, способность добавлять свои картинки и подписи к ним + плавные анимации открывающихся попапов (\"модальных окон\"), добавлена проверка на валидацию форм + переписан код под ООП. ----- *[Макет](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?type=design&node-id=28212-269&t=jMHl9WWTQNtTa0Mn-0)*, ----- ## Какие технологии использовались? 1. *flex-box* 2. *Grid-layout* 3. JavaScript 4. *DOM - деревья* 5. *БЭМ* 6. *ООП* 7. *Es6 Modules* ## Что планируется в будующем Планируется дальше развивать проект с помощью предложенных заданий Яндексом, надеюсь будет все так же круто и весело!",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.14",
+    "autoprefixer": "^10.4.15",
+    "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "cssnano": "^6.0.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss-loader": "^7.3.3",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "core-js": "^3.32.1"
   }
 }
