@@ -1,7 +1,7 @@
 class UserInfo {
-  constructor({ profileTitle, profileDescription }) {
-    this._title = document.querySelector(profileTitle);
-    this._description = document.querySelector(profileDescription);
+  constructor({ profileTitleSelector, profileDescriptionSelector }) {
+    this._title = document.querySelector(profileTitleSelector);
+    this._description = document.querySelector(profileDescriptionSelector);
   }
 
   setUserInfo({ name, jobName }) {
@@ -11,8 +11,8 @@ class UserInfo {
 
   getUserInfo() {
     return {
-      name: this._title,
-      jobName: this._description
+      name: this._title.textContent,
+      jobName: this._description.textContent
     };
   }
 }
