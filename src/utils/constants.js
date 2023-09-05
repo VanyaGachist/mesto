@@ -34,3 +34,5 @@ export const openEditMenuForProfile = document.querySelector('.profile__edit-but
 export const openAddMenuButton = document.querySelector('.profile__add-button');
 export const nameImage = document.querySelector('.popup__input_text_name-image');
 export const hrefImage = document.querySelector('.popup__input_href-image');
+export const nameInput = document.querySelector('.popup__input_text_name');
+export const jobInput = document.querySelector('.popup__input_text_after');
