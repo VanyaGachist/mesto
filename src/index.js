@@ -12,13 +12,10 @@ import {
   nameInput,
   jobInput
 } from './utils/constants.js';
-import Popup from "./components/popup.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import './pages/index.css';
 import PopupImage from "./components/popupImage.js";
 
-const editPopup = new Popup('.popup_edit');
-const addPopup = new Popup('.popup_add');
 const validEdit = new FormValidator(validationConfig, '.popup__form_type_with-name-and-job');
 const validAdd = new FormValidator(validationConfig, '.popup__form_type_with-image');
 const userInfo = new UserInfo({
@@ -41,7 +38,7 @@ openEditMenuForProfile.addEventListener('click', () => {
   const { name, jobName } = userInfo.getUserInfo();
   nameInput.value = name;
   jobInput.value = jobName;
-  editPopup.open();
+  editPopupForm.open();
   validEdit.disableSubmitButton();
 });
 
@@ -64,7 +61,7 @@ const editPopupForm = new PopupWithForm('.popup_edit', () => {
 
 editPopupForm.setEventListeners();
 
-const addPopupForm = new PopupWithForm('.popup_add', () => {
+const addPopupForm = new PopupWithForm('.popup_add', (data) => {
   createCard(nameImage.value, hrefImage.value);
   addPopupForm.close();
 });
@@ -73,7 +70,7 @@ addPopupForm.setEventListeners();
 
 
 openAddMenuButton.addEventListener('click', function () {
-  addPopup.open();
+  addPopupForm.open();
   validAdd.disableSubmitButton();
 });
 
