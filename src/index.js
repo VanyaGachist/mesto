@@ -61,7 +61,7 @@ const editPopupForm = new PopupWithForm('.popup_edit', () => {
 
 editPopupForm.setEventListeners();
 
-const addPopupForm = new PopupWithForm('.popup_add', (data) => {
+const addPopupForm = new PopupWithForm('.popup_add', () => {
   createCard(nameImage.value, hrefImage.value);
   addPopupForm.close();
 });
