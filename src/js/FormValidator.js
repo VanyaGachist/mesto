@@ -23,7 +23,7 @@ class FormValidator {
     input.classList.remove(this._config.inputErrorClass);
     const span = this._form.querySelector('.popup__error-' + input.id);
     span.textContent = input.validationMessage;
-    span.classList.add(this._config.errorClass);
+    span.classList.remove(this._config.errorClass);
   }
 
   _hasInvalidValue() {
