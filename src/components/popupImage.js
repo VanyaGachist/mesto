@@ -12,7 +12,6 @@ class PopupImage extends Popup {
     this._fullScreanImagePopup.setAttribute('alt', cardHeading);
     this._textForImage.textContent = cardHeading;
     super.open();
-    super.setEventListeners();
   }
 }
 

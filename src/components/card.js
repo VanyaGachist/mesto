@@ -33,12 +33,12 @@ class Card {
 
 
   // удалить карточку
-  _setEventToDeleteButton() {
+  _setDeleteEventListener() {
     this._deleteButton.addEventListener('click', this._handleDeleteCard.bind(this));
   }
 
   // поставить лайк, (была добавлена проверка contains и evt.target)
-  _setEventToAddLike() {
+  _setLikeEventListener() {
     this._likeButton.addEventListener('click', this._handleLikeToCard.bind(this));
   }
 
@@ -69,8 +69,8 @@ class Card {
 
     this._setName();
     this._setImage();
-    this._setEventToDeleteButton();
-    this._setEventToAddLike();
+    this._setDeleteEventListener();
+    this._setLikeEventListener();
     this._setOpenImage();
 
     return this._newCard;
