@@ -1,4 +1,4 @@
-import Card from "./components/card.js";
+import Card from "./components/Card.js"
 import FormValidator from "./components/FormValidator.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
@@ -14,7 +14,7 @@ import {
 } from './utils/constants.js';
 import PopupWithForm from "./components/PopupWithForm.js";
 import './pages/index.css';
-import PopupImage from "./components/popupImage.js";
+import PopupImage from "./components/PopupImage.js";
 
 const validEdit = new FormValidator(validationConfig, '.popup__form_type_with-name-and-job');
 const validAdd = new FormValidator(validationConfig, '.popup__form_type_with-image');
@@ -30,8 +30,7 @@ function createCard (name, link) {
   const card = new Card(name, link, '#card__template', () => {
     popupWithImage.openImage(link, name);
   });
-  const cardElem = card.getView();
-  cardsSection.addItem(cardElem);
+  return card.getView();
 }
 
 openEditMenuForProfile.addEventListener('click', () => {
@@ -45,24 +44,26 @@ openEditMenuForProfile.addEventListener('click', () => {
 const cardsSection = new Section({
   data: initialCards,
   renderer: (item) => {
-    createCard(item.name, item.link);
+    const cardElem = createCard(item.name, item.link);
+    cardsSection.addItem(cardElem);
   }
 }, '.element');
 
 cardsSection.render();
 
-const editPopupForm = new PopupWithForm('.popup_edit', () => {
+const editPopupForm = new PopupWithForm('.popup_edit', (data) => {
   userInfo.setUserInfo({
-    name: nameInput.value,
-    jobName: jobInput.value
+    name: data[nameInput.name],
+    jobName: data[jobInput.name]
   });
   editPopupForm.close();
 });
 
 editPopupForm.setEventListeners();
 
-const addPopupForm = new PopupWithForm('.popup_add', () => {
-  createCard(nameImage.value, hrefImage.value);
+const addPopupForm = new PopupWithForm('.popup_add', (data) => {
+  const cardElem = createCard(data[nameImage.name], data[hrefImage.name]);
+  cardsSection.addItem(cardElem);
   addPopupForm.close();
 });
 
