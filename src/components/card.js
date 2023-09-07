@@ -44,7 +44,7 @@ class Card {
 
 
   //используя класс c PopupImage открываем попап с картинкой
-  _setOpenImage() {
+  _setImageClickEventListener() {
     this._imageCard.addEventListener('click', () => {
       this._handleCardClick(this._image, this._title);
     });
@@ -71,7 +71,7 @@ class Card {
     this._setImage();
     this._setDeleteEventListener();
     this._setLikeEventListener();
-    this._setOpenImage();
+    this._setImageClickEventListener();
 
     return this._newCard;
   }
