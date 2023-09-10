@@ -18,6 +18,7 @@ import PopupImage from "./components/PopupImage.js";
 
 const validEdit = new FormValidator(validationConfig, '.popup__form_type_with-name-and-job');
 const validAdd = new FormValidator(validationConfig, '.popup__form_type_with-image');
+const validAvatar = new FormValidator(validationConfig, '.popup__form_type_with-avatar');
 const userInfo = new UserInfo({
   profileTitleSelector: '.profile__heading',
   profileDescriptionSelector: '.profile__subtitle'
@@ -77,3 +78,4 @@ openAddMenuButton.addEventListener('click', function () {
 
 validEdit.enableValidation();
 validAdd.enableValidation();
+validAvatar.enableValidation();
