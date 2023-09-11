@@ -36,3 +36,5 @@ export const nameImage = document.querySelector('.popup__input_text_name-image')
 export const hrefImage = document.querySelector('.popup__input_href-image');
 export const nameInput = document.querySelector('.popup__input_text_name');
 export const jobInput = document.querySelector('.popup__input_text_after');
+export const openAvatarMenuButton = document.querySelector('.profile__pencil');
+export const avatarInput = document.querySelector('.popup__input_href-avatar');
