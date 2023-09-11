@@ -11,7 +11,10 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img src="<%=require('./images/IMG_8445.gif')%>" alt="аватарка" class="profile__image">
+      <div class="profile__avatar">
+        <img src="<%=require('./images/IMG_8445.gif')%>" alt="аватарка" class="profile__image">
+        <div class="profile__pencil"></div>
+      </div>
       <div class="profile__info">
         <h1 class="profile__heading">k5akp</h1>
         <p class="profile__subtitle">ggpp</p>
@@ -86,7 +89,7 @@
       <h2 class="popup__title">Обновить аватар</h2>
       <form class="popup__form popup__form_type_with-avatar" name="popup__form" novalidate>
         <label class="popup__label popup__label_one">
-          <input type="url" class="popup__input" id="href-avatar" name="input_avatar" placeholder="ссылка на аватарку">
+          <input type="url" class="popup__input popup__input_href-avatar" id="href-avatar" name="input_avatar" placeholder="ссылка на аватарку">
           <span class="popup__error popup__error-href-avatar"></span>
         </label>
         <button type="submit" class="popup__button popup__avatar">Сохранить</button>
