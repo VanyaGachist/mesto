@@ -1,7 +1,8 @@
 class UserInfo {
-  constructor({ profileTitleSelector, profileDescriptionSelector }) {
+  constructor({ profileTitleSelector, profileDescriptionSelector, profileAvatarSelector }) {
     this._title = document.querySelector(profileTitleSelector);
     this._description = document.querySelector(profileDescriptionSelector);
+    this._avatar = document.querySelector(profileAvatarSelector);
   }
 
   setUserInfo({ name, jobName }) {
@@ -14,6 +15,10 @@ class UserInfo {
       name: this._title.textContent,
       jobName: this._description.textContent
     };
+  }
+
+  setNewAvatar({ avatar }) {
+    this._avatar.src = avatar;
   }
 }
 
