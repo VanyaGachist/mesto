@@ -22,6 +22,7 @@
 @import url("../blocks/element/__button/element__button.css");
 @import url("../blocks/element/__button/_color/element__button_color_black.css");
 @import url("../blocks/element/__trash/element__trash.css");
+@import url("../blocks/element/__trash/_hide/element__trash_hide.css");
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__heading/footer__heading.css");
 @import url("../blocks/popup/popup.css");
