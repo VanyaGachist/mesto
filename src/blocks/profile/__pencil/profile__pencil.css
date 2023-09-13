@@ -21,6 +21,7 @@
   background-position: center;
   background-repeat: no-repeat;
   display: block;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 903px) {
