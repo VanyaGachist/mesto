@@ -1,12 +1,10 @@
 // Класс с созданием карточек
 class Card {
-  constructor(title, image, templateSelector, handleCardClick, id, isMain) {
+  constructor(title, image, templateSelector, handleCardClick) {
     this._templateSelector = templateSelector;
     this._title = title;
     this._image = image;
     this._handleCardClick = handleCardClick;
-    this._id = id;
-    this._isMain = isMain;
   }
 
   // Возвращает template с стилизованными карточками
