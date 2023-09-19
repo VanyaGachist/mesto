@@ -11,69 +11,63 @@ class Api {
     throw new Error('ошибка!')
   }
 
-  getUserInfo() {
+  // Загрузка информации о пользователе с сервера
+  getInfo() {
     return fetch(this._url + '/users/me', {
       method: 'GET',
       headers: this._headers
     })
     .then(this._ifcheck)
     .catch((err) => {
-      console.log(err);
-    });
-  }
-
-  setUserInfo(info) {
-    return fetch(this._url + '/users/me', {
-      method: 'PATCH',
-      headers: this._headers,
-      body: JSON.stringify({
-        name: info.name,
-        jobName: info.jobName
-      })
+      console.log(err)
     })
-    .then(this._ifcheck)
-    .catch((err) => {
-        console.log(err);
-    });
   }
 
-  getAllCards() {
+
+  // Загрузка карточек с сервера
+  getCards() {
     return fetch(this._url + '/cards', {
       method: 'GET',
       headers: this._headers
     })
     .then(this._ifcheck)
     .catch((err) => {
-      console.log(err);
-    });
+      console.log(err)
+    })
   }
 
-  setEditProfile() {
+  // Редактирование профиля
+  editProfile(name, about) {
     return fetch(this._url + '/users/me', {
       method: 'PATCH',
-      headers: this._headers
+      headers: this._headers,
+      body: JSON.stringify({
+        name: name,
+        about: about
+      })
     })
     .then(this._ifcheck)
     .catch((err) => {
-      console.log(err);
-    });
+      console.log(err)
+    })
   }
 
-  setNewCard(cards) {
+  addCard(name, link) {
     return fetch(this._url + '/cards', {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: cards.name,
-        link: cards.link
+        name: name,
+        link: link
       })
     })
     .then(this._ifcheck)
     .catch((err) => {
-      console.log(err);
-    });
+      console.log(err)
+    })
   }
 
+  // Добавление новой карточки
   addLiked(id) {
     return fetch(this._url + `/cards/${id}likes/`, {
       method: 'PUT',
@@ -83,6 +77,18 @@ class Api {
     .catch((err) => {
       console.log(err);
     });
+  }
+
+  // Удаление карточки
+  deleteCard(id) {
+    return fetch(`${this._url}/cards/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers
+    })
+    .then(this._ifcheck)
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   deleteLike(id) {
@@ -108,17 +114,6 @@ class Api {
     .catch((err) => {
       console.log(err);
     });
-  }
-
-  deleteCard(id) {
-    return fetch(this._url + `/cards/${id}`, {
-      method: 'DELETE',
-      headers: this._headers
-    })
-      .then(this._ifcheck)
-      .catch((err) => {
-        console.log(err);
-      });
   }
 }
 
