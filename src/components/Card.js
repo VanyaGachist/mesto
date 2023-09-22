@@ -1,9 +1,9 @@
 // Класс с созданием карточек
 class Card {
-  constructor(title, image, templateSelector, handleCardClick) {
+  constructor(data, templateSelector, handleCardClick) {
     this._templateSelector = templateSelector;
-    this._title = title;
-    this._image = image;
+    this._title = data.name;
+    this._image = data.link;
     this._handleCardClick = handleCardClick;
   }
 
@@ -34,11 +34,7 @@ class Card {
 
   // удалить карточку
   _setDeleteEventListener() {
-    if(this._isMain) {
-      this._deleteButton.addEventListener('click', this._handleDeleteCard.bind(this));
-    } else {
-      this._deleteButton.classList.add('element__trash_hide');
-    }
+    this._deleteButton.addEventListener('click', this._handleDeleteCard.bind(this));
   }
 
   // поставить лайк, (была добавлена проверка contains и evt.target)
