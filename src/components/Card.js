@@ -82,7 +82,7 @@ class Card {
   // удалить карточку
   _setDeleteEventListener() {
     this._deleteButton.addEventListener('click', () => {
-      this._handleDeleteApiCard(this._id);
+      this._handleDeleteApiCard(this);
     });
   }
 
