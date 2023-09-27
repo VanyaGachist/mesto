@@ -4,7 +4,6 @@ import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
 import {
   validationConfig,
-  initialCards,
   openEditMenuForProfile,
   openAddMenuButton,
   nameImage,
@@ -12,12 +11,14 @@ import {
   nameInput,
   jobInput,
   openAvatarMenuButton,
-  avatarInput
+  avatarInput,
+  trashButton
 } from './utils/constants.js';
 import PopupWithForm from "./components/PopupWithForm.js";
 import './pages/index.css';
 import PopupImage from "./components/PopupImage.js";
 import Api from "./components/Api.js";
+import PopupDelete from "./components/PopupDelete.js";
 
 const validEdit = new FormValidator(validationConfig, '.popup__form_type_with-name-and-job');
 const validAdd = new FormValidator(validationConfig, '.popup__form_type_with-image');
@@ -37,97 +38,138 @@ const api = new Api({
     'Content-Type': 'application/json'
   }
 })
+let userId;
 
-function createCard (name, link) {
-  const card = new Card(name, link, '#card__template', () => {
-    popupWithImage.openImage(link, name);
+const popupDelete = new PopupDelete('.popup_ques', (card) => {
+  api.deleteCard(card._id)
+    .then(() => {
+      card.handleDeleteCard();
+      popupDelete.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+})
+
+popupDelete.setEventListeners();
+
+function createCard (data) {
+  const card = new Card(data, userId, '#card__template', {
+    handleCardClick: (link, name) => {
+      popupWithImage.openImage(link, name);
+    },
+    handleCardLike: (id) => {
+      api.addLiked(id)
+        .then((res) => {
+          card.addLike(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    },
+    handleCardDislike: (id) => {
+      api.deleteLike(id)
+        .then((res) => {
+          card.removeLike(res)
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    },
+    handleDeleteApiCard: (card) => {
+      popupDelete.open(card);
+    }
   })
-
   return card.getView();
 }
 
-openEditMenuForProfile.addEventListener('click', () => {
-  api.getUserInfo()
-  .then(() => {
-    const { name, jobName } = userInfo.getUserInfo();
-    nameInput.value = name;
-    jobInput.value = jobName;
-    editPopupForm.open();
-    validEdit.disableSubmitButton();
+const cardsSection = new Section({
+  renderer: (item) => {
+    const cardElem = createCard(item);
+    cardsSection.addItem(cardElem);
+  }
+}, '.element');
+
+Promise.all([
+  api.getCards(),
+  api.getInfo()
+])
+  .then(([cardsData, userData]) => {
+    userId = userData._id;
+    userInfo.setUserInfo({
+      name: userData.name,
+      jobName: userData.about
+    })
+    userInfo.setNewAvatar({
+      avatar: userData.avatar
+    })
+    cardsSection.render(cardsData);
   })
   .catch((err) => {
-    console.log(err);
-  })
+    console.error(err);
+  });
+
+
+
+openEditMenuForProfile.addEventListener('click', () => {
+  const { name, jobName } = userInfo.getUserInfo();
+  nameInput.value = name;
+  jobInput.value = jobName;
+  editPopupForm.open();
+  validEdit.disableSubmitButton();
 });
+
 
 openAvatarMenuButton.addEventListener('click', () => {
   validAvatar.disableSubmitButton();
   avatarPopupForm.open();
 });
 
-const cardsSection = new Section({
-  data: initialCards,
-  renderer: (item) => {
-    const cardElem = createCard(item.name, item.link);
-    cardsSection.addItem(cardElem);
-  }
-}, '.element');
-
-api.getAllCards()
-  .then(() => {
-    cardsSection.render();
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-
 const editPopupForm = new PopupWithForm('.popup_edit', (data) => {
-  editPopupForm.renderSaveLoading(true);
-  api.setUserInfo({
-    name: data[nameInput.name],
-    jobName: data[jobInput.name]
-  })
-  .then(() => {
-    userInfo.setUserInfo({
-      name: data[nameInput.name],
-      jobName: data[jobInput.name]
-    });
-    editPopupForm.close();
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    setTimeout(() => {
-      editPopupForm.renderSaveLoading(false);
-    }, 1500)
-  })
+  editPopupForm.renderSaveLoading(true)
+  const name = data[nameInput.name];
+  const jobName = data[jobInput.name];
+  api.editProfile(name, jobName)
+    .then(() => {
+      userInfo.setUserInfo({ name, jobName });
+      editPopupForm.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        editPopupForm.renderSaveLoading(false);
+      }, 1500)
+    })
+
+  editPopupForm.close();
 });
 
 editPopupForm.setEventListeners();
 
 const addPopupForm = new PopupWithForm('.popup_add', (data) => {
-  addPopupForm.renderCreateLoading(true)
-  api.setNewCard({
+  const newCard = {
     name: data[nameImage.name],
     link: data[hrefImage.name]
-  })
-  .then(() => {
-    const isMain = true;
-    const cardElem = createCard(data[nameImage.name], data[hrefImage.name], isMain);
-    cardsSection.addItem(cardElem);
-    validAdd.disableSubmitButton();
-    addPopupForm.close();
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    setTimeout(() => {
-      addPopupForm.renderCreateLoading(false);
-    }, 1500)
-  });
+  };
+  addPopupForm.renderCreateLoading(true);
+  api.addCard(newCard)
+    .then((cardData) => {
+      const cardElem = createCard(cardData);
+      cardsSection.addItem(cardElem);
+      addPopupForm.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        addPopupForm.renderCreateLoading(false);
+      }, 2000);
+    })
 });
+
 
 const avatarPopupForm = new PopupWithForm('.popup_avatar', (data) => {
   avatarPopupForm.renderSaveLoading(true);
@@ -143,13 +185,13 @@ const avatarPopupForm = new PopupWithForm('.popup_avatar', (data) => {
     console.log(err)
   })
   .finally(() => {
-    avatarPopupForm.renderSaveLoading(false);
+    setTimeout(() => {
+      avatarPopupForm.renderSaveLoading(false);
+    }, 1500)
   });
 });
 
 avatarPopupForm.setEventListeners();
-
-
 addPopupForm.setEventListeners();
 
 

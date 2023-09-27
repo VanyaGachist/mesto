@@ -52,14 +52,11 @@ class Api {
     })
   }
 
-  addCard(name, link) {
+  addCard(data) {
     return fetch(this._url + '/cards', {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify({
-        name: name,
-        link: link
-      })
+      body: JSON.stringify(data)
     })
     .then(this._ifcheck)
     .catch((err) => {
@@ -69,7 +66,7 @@ class Api {
 
   // Добавление новой карточки
   addLiked(id) {
-    return fetch(this._url + `/cards/${id}likes/`, {
+    return fetch(`${this._url}/cards/${id}/likes`, {
       method: 'PUT',
       headers: this._headers
     })
@@ -92,7 +89,7 @@ class Api {
   }
 
   deleteLike(id) {
-    return fetch(this._url + `/cards/${id}likes/`, {
+    return fetch(`${this._url}/cards/${id}/likes`, {
       method: 'DELETE',
       headers: this._headers
     })

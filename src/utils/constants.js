@@ -38,3 +38,4 @@ export const nameInput = document.querySelector('.popup__input_text_name');
 export const jobInput = document.querySelector('.popup__input_text_after');
 export const openAvatarMenuButton = document.querySelector('.profile__pencil');
 export const avatarInput = document.querySelector('.popup__input_href-avatar');
+export const trashButton = document.querySelector('.element__trash');
