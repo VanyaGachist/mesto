@@ -11,8 +11,7 @@ import {
   nameInput,
   jobInput,
   openAvatarMenuButton,
-  avatarInput,
-  trashButton
+  avatarInput
 } from './utils/constants.js';
 import PopupWithForm from "./components/PopupWithForm.js";
 import './pages/index.css';
