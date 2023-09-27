@@ -131,7 +131,7 @@ openAvatarMenuButton.addEventListener('click', () => {
 });
 
 const editPopupForm = new PopupWithForm('.popup_edit', (data) => {
-  editPopupForm.renderSaveLoading(true)
+  editPopupForm.renderLoading(true, 'Сохранение...', 'Сохранить')
   const name = data[nameInput.name];
   const jobName = data[jobInput.name];
   api.editProfile(name, jobName)
@@ -144,7 +144,7 @@ const editPopupForm = new PopupWithForm('.popup_edit', (data) => {
     })
     .finally(() => {
       setTimeout(() => {
-        editPopupForm.renderSaveLoading(false);
+        editPopupForm.renderLoading(false, 'Сохранение...', 'Сохранить');
       }, 1500)
     })
 
@@ -158,7 +158,7 @@ const addPopupForm = new PopupWithForm('.popup_add', (data) => {
     name: data[nameImage.name],
     link: data[hrefImage.name]
   };
-  addPopupForm.renderCreateLoading(true);
+  addPopupForm.renderLoading(true, 'Создание...', 'Создать');
   api.addCard(newCard)
     .then((cardData) => {
       const cardElem = createCard(cardData);
@@ -170,7 +170,7 @@ const addPopupForm = new PopupWithForm('.popup_add', (data) => {
     })
     .finally(() => {
       setTimeout(() => {
-        addPopupForm.renderCreateLoading(false);
+        addPopupForm.renderCreateLoading(false, 'Создание...', 'Создать');
       }, 2000);
     })
 });

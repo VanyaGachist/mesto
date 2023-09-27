@@ -30,27 +30,11 @@ class PopupWithForm extends Popup {
     this._form.reset();
   }
 
-  renderSaveLoading(isLoading) {
+  renderLoading(isLoading, statusRender, statusStart) {
     if(isLoading) {
-      this._button.textContent = 'Сохранение...';
+      this._button.textContent = `${statusRender}`;
     } else {
-      this._button.textContent = 'Сохранить';
-    }
-  }
-
-  renderCreateLoading(isLoading) {
-    if(isLoading) {
-      this._button.textContent = 'Создание...';
-    } else {
-      this._button.textContent = 'Сохранить';
-    }
-  }
-
-  renderDeleteLoading(isLoading) {
-    if(isLoading) {
-      this._button.textContent = 'Удаление...';
-    } else {
-      this._button.textContent = 'Да...';
+      this._button.textContent = `${statusStart}`;
     }
   }
 }
