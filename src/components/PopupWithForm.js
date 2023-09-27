@@ -45,6 +45,14 @@ class PopupWithForm extends Popup {
       this._button.textContent = 'Сохранить';
     }
   }
+
+  renderDeleteLoading(isLoading) {
+    if(isLoading) {
+      this._button.textContent = 'Удаление...';
+    } else {
+      this._button.textContent = 'Да...';
+    }
+  }
 }
 
 export default PopupWithForm;

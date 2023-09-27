@@ -40,6 +40,7 @@ const api = new Api({
 let userId;
 
 const popupDelete = new PopupDelete('.popup_ques', (card) => {
+  popupDelete.renderDeleteLoading(true);
   api.deleteCard(card._id)
     .then(() => {
       card.handleDeleteCard();
@@ -47,6 +48,11 @@ const popupDelete = new PopupDelete('.popup_ques', (card) => {
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        popupDelete.renderDeleteLoading(false);
+      }, 2000);
     })
 })
 
