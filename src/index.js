@@ -108,7 +108,7 @@ Promise.all([
     userInfo.setNewAvatar({
       avatar: userData.avatar
     })
-    cardsSection.render(cardsData);
+    cardsSection.render(cardsData.reverse());
   })
   .catch((err) => {
     console.error(err);
@@ -170,14 +170,14 @@ const addPopupForm = new PopupWithForm('.popup_add', (data) => {
     })
     .finally(() => {
       setTimeout(() => {
-        addPopupForm.renderCreateLoading(false, 'Создание...', 'Создать');
+        addPopupForm.renderLoading(false, 'Создание...', 'Создать');
       }, 2000);
     })
 });
 
 
 const avatarPopupForm = new PopupWithForm('.popup_avatar', (data) => {
-  avatarPopupForm.renderSaveLoading(true);
+  avatarPopupForm.renderLoading(true, 'Сохранение...', 'Сохранить');
   api.changeAvatar({
     avatar: data[avatarInput.name]
   })
@@ -191,7 +191,7 @@ const avatarPopupForm = new PopupWithForm('.popup_avatar', (data) => {
   })
   .finally(() => {
     setTimeout(() => {
-      avatarPopupForm.renderSaveLoading(false);
+      avatarPopupForm.renderLoading(false, 'Сохранение...', 'Сохранить');
     }, 1500)
   });
 });
