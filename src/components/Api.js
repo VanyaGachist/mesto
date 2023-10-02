@@ -18,9 +18,6 @@ class Api {
       headers: this._headers
     })
     .then(this._ifcheck)
-    .catch((err) => {
-      console.log(err)
-    })
   }
 
 
@@ -31,9 +28,6 @@ class Api {
       headers: this._headers
     })
     .then(this._ifcheck)
-    .catch((err) => {
-      console.log(err)
-    })
   }
 
   // Редактирование профиля
@@ -47,9 +41,6 @@ class Api {
       })
     })
     .then(this._ifcheck)
-    .catch((err) => {
-      console.log(err)
-    })
   }
 
   addCard(data) {
@@ -59,9 +50,6 @@ class Api {
       body: JSON.stringify(data)
     })
     .then(this._ifcheck)
-    .catch((err) => {
-      console.log(err)
-    })
   }
 
   // Добавление новой карточки
@@ -71,9 +59,6 @@ class Api {
       headers: this._headers
     })
     .then(this._ifcheck)
-    .catch((err) => {
-      console.log(err);
-    });
   }
 
   // Удаление карточки
@@ -83,9 +68,6 @@ class Api {
       headers: this._headers
     })
     .then(this._ifcheck)
-    .catch((err) => {
-      console.log(err)
-    })
   }
 
   deleteLike(id) {
@@ -94,9 +76,6 @@ class Api {
       headers: this._headers
     })
     .then(this._ifcheck)
-    .catch((err) => {
-      console.log(err);
-    });
   }
 
   changeAvatar(data) {
@@ -108,9 +87,6 @@ class Api {
       })
     })
     .then(this._ifcheck)
-    .catch((err) => {
-      console.log(err);
-    });
   }
 }
 
