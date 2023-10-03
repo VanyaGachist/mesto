@@ -65,8 +65,8 @@ function createCard (data) {
     },
     handleCardLike: (id) => {
       api.addLiked(id)
-        .then((res) => {
-          card.addLike(res);
+        .then(() => {
+          card.addLike();
         })
         .catch((err) => {
           console.log(err);
@@ -74,8 +74,8 @@ function createCard (data) {
     },
     handleCardDislike: (id) => {
       api.deleteLike(id)
-        .then((res) => {
-          card.removeLike(res)
+        .then(() => {
+          card.removeLike()
         })
         .catch((err) => {
           console.log(err);
