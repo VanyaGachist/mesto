@@ -26,6 +26,11 @@ class Card {
     this._likeCounter.textContent = this._likes.length;
   }
 
+  setLikeCounter(likes) {
+    this._likes = likes;
+    this._likesCounter();
+  }
+
   _handleLikeToCard() {
     if(this._likeButton.classList.contains('element__button_color_black')) {
       this._handleCardDislike(this._id);
@@ -36,12 +41,10 @@ class Card {
 
   addLike() {
     this._likeButton.classList.add('element__button_color_black');
-    this._likesCounter();
   }
 
   removeLike() {
     this._likeButton.classList.remove('element__button_color_black');
-    this._likesCounter();
   }
 
   _isLiked() {
